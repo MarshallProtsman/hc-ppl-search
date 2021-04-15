@@ -1,0 +1,6 @@
+node_modules
+mysql-server/
+.env
+/server/config/
+.DS_Store
+mysql-server/
