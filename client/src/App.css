@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: rgba(11,82,28, 0.05);
 }
 
 .App-logo {
@@ -35,4 +36,58 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1200;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.space-around {
+  justify-content: space-evenly;   
+ }
+
+ .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 3px;
+  margin: 0 auto;
+  display: block;
+}
+
+.header-lg {
+  font-size: 35px;
+  font-weight: 300;
+  margin: 20px
+}
+
+.repo {
+  margin: 10px 0;
+  width: 250px;
+  padding: 20px;
+}
+.bg-light {
+  background: rgba(11,82,28, 0.1);
+  border-radius: 3px;
 }
