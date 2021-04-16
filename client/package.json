@@ -14,7 +14,9 @@
   },
   "scripts": {
     "start": "(nodemon ../api/bin/www) & react-scripts start",
-    "startapi":  "(nodemon ../api/bin/www) & react-scripts start",
+    "client-start" : "react-scripts start",
+    "ready": "(cd ../api && pwd && npm install) & npm install && pwd",
+    "startapi": "(nodemon ../api/bin/www) & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
