@@ -4,6 +4,7 @@ import PeopleList from "./Components/PeopleList";
 import Loading from "./Components/Loading";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function App() {
   const ListLoading = Loading(PeopleList);
@@ -23,26 +24,62 @@ function App() {
       });
   }, [setAppState]);
 
-  function onUpdateSearch(e) {
+  // No Debounce
+  // function onUpdateSearch(e) {
+  //   setAppState({ loading: true });
+  //   const searchUrl = `/api/people/${e.target.value}`;
+  //   console.log(searchUrl)
+  //   fetch(searchUrl)
+  //     // .then((x) => new Promise((resolve) => setTimeout(() => resolve(x), 1000)))
+  //     .then((res) => res.json())
+  //     .then((people) => {
+  //       setAppState({ loading: false, people: people });
+  //     });
+  // }
+
+  // Debounce function
+  const debounce = (func) => {
+    let timeout;
+
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+
+      clearTimeout(timeout);
+      timeout = setTimeout(later, 1000);
+    };
+  };
+
+  let returnedFunction = debounce(function (e) {
     setAppState({ loading: true });
     const searchUrl = `/api/people/${e.target.value}`;
-    console.log(searchUrl)
+    console.log(searchUrl);
     fetch(searchUrl)
       .then((x) => new Promise((resolve) => setTimeout(() => resolve(x), 1000)))
       .then((res) => res.json())
       .then((people) => {
         setAppState({ loading: false, people: people });
       });
-  }
+  });
 
   return (
     <div className="App">
       <div className="container">
         <Typography variant="h2">My People</Typography>
       </div>
-      <TextField label="Search" onChange={onUpdateSearch}></TextField>
+      <TextField label="Search" onChange={returnedFunction}></TextField>
       <div className="people-container">
-        <ListLoading isLoading={appState.loading} people={appState.people} />
+        {appState.loading ? (
+          <>
+            <CircularProgress style={{ margin: "50px" }} />
+            <Typography>Loading delayed by 1 second</Typography>
+          </>
+        ) : (
+          <ListLoading isLoading={appState.loading} people={appState.people} />
+        )}
+        {/* <ListLoading isLoading={appState.loading} people={appState.people} /> */}
       </div>
     </div>
   );

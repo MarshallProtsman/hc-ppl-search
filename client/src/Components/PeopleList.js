@@ -20,7 +20,6 @@ const PeopleList = (props) => {
               alt={`avatar for ${person.name}`}
             />
             <List className="card-list">
-              <li>{person.id}</li>
               <ListItem variant="subtitle2">Age: {person.age}</ListItem>
               <ListItem>Interests: {person.interests}</ListItem>
               <ListItem>Address: {person.address}</ListItem>
