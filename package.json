@@ -13,8 +13,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "(nodemon ../api/bin/www) & react-scripts start",
-    "client-start" : "react-scripts start",
+    "all-start": "(nodemon /api/bin/www) & react-scripts start",
+    "start": "react-scripts start",
     "ready": "(cd ../api && pwd && npm install) & npm install && pwd",
     "startapi": "(nodemon ../api/bin/www) & react-scripts start",
     "build": "react-scripts build",
