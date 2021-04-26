@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "15.x"
+    "node": "15.x",
+    "npm": "7.0.14"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

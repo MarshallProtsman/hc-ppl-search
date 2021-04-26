@@ -1,5 +1,5 @@
 import React from "react";
-import List from "@material-ui/core/list";
+import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 
 import ListItem from "@material-ui/core/ListItem";
